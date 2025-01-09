@@ -7253,7 +7253,7 @@ textarea.textarea-lg {
 		visibility: hidden;
 	}
 	.desktop .thumbnail-mary-figure img {
-		transform: scale(1.2);
+		/* transform: scale(1.2); */
 		will-change: transform;
 	}
 	.desktop .thumbnail-mary-caption .icon,
@@ -10055,8 +10055,10 @@ h5 + .list-popular-product {
 		flex-basis: 50%;
 	}
 	.product-big-body {
-		padding-left: 12%;
-		padding-right: 85px;
+		/* padding-left: 12%;
+		padding-right: 85px; */
+		padding-left: 20px;
+		padding-right: 20px;
 	}
 	.product-big-price-wrap {
 		font-size: 24px;
@@ -12133,7 +12135,7 @@ html [class*='section-'].section-top-0 {
 		padding: 50px 0;
 	}
 	.section-sm.section-first {
-		padding-top: 100px;
+		padding-top: 60px;
 	}
 	.section-sm.section-last {
 		padding-bottom: 100px;
@@ -13022,7 +13024,7 @@ p.rights a:hover {
 	overflow: hidden;
 }
 
-.box-position {
+/* .box-position {
 	position: absolute;
 	left: 0;
 	top: 0;
@@ -13031,6 +13033,17 @@ p.rights a:hover {
 	will-change: transform;
 	animation: bgPos 100s linear infinite;
 	transform: translate3d(-75px, -75px, 0) rotate(0.001deg);
+	background-position: 50% 50%;
+	background-size: cover;
+	z-index: -1;
+} */
+
+.box-position {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
 	background-position: 50% 50%;
 	background-size: cover;
 	z-index: -1;
@@ -24747,4 +24760,100 @@ img.mfp-img {
 }
 .whatsapp-float:hover {
     background-color: #128C7E;
+}
+
+.btn-adquirir{
+	background-color: #fff;
+	font-weight: bold;
+	border-radius: 20px;
+}
+
+.listPlan {
+	list-style: none;
+}
+
+.listPlan li::before {
+	content: "►";
+	color: #f4801d;
+	display: inline-block;
+	width: 2em;
+	margin-left: 0em;
+}
+
+.title-color2 {
+	color: #162e44;
+	font-weight: bold;
+}
+
+.title-color3 {
+	color: #f4801d;
+	font-weight: bold;
+}
+
+.section-padding {
+	padding-top: 30px !important;
+}
+
+.dv-CoberturaBackground {
+	background-image: url("../images/banners/cobertura.jpg");
+}
+
+.dv-PrograBackground {
+	background-image: url("../images/banners/programacion.jpg");
+}
+
+.dv-btnCobertura {
+	/* position: relative; */
+	width: 100%;
+	display: flex; 
+	justify-content: center; /* Centrado horizontal */
+  }
+  
+.btnCobertura {
+	position: absolute;
+	bottom: 20px;
+	color: white;
+	padding: 10px 20px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.dv-cobertura {
+	text-align: center;
+}
+
+.h3-cobertura {
+	font-weight: lighter;
+}
+
+.no-border {
+	border: none;
+}
+
+.dv-imgUbicanos {
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%; /* Ajusta según el tamaño del contenedor */
+    width: 100%; /* Ajusta según el tamaño del contenedor */
+}
+
+.dv-center-txtUbicanos {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.dv-btnCenter {
+	display: grid;
+	place-items: center;
+}
+
+.no-marginTop {
+	margin-top: 0px !important;
+}
+
+.i-normal {
+	font-style: normal !important;
 }
