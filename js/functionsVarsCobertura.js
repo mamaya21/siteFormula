@@ -2,6 +2,12 @@
 
     var phoneNumber = "51918821648"; // Número de WhatsApp sin el '+'
 
+    document.getElementById("whatsappLinkAhora").addEventListener("click", function (event) {
+        event.preventDefault(); // Prevenir la navegación predeterminada
+        const message = "¡Hola! 👋 Gracias por escribirnos desde nuestra página web. 🎉 Por ello, tienes un beneficio de ¡INSTALACIÓN GRATIS! Cuéntanos cómo podemos ayudarte? 💬✨";
+        sendWhatsAppMessage(phoneNumber, message);
+    });
+
     document.getElementById("whatsappCobertura").addEventListener("click", function (event) {
         event.preventDefault(); // Prevenir la navegación predeterminada
         const message = "¡Hola! 👋 Quiero consultar si mi zona tiene cobertura.";
