@@ -1,0 +1,42 @@
+/*BACKGROUND RESPONSIVE*/
+/* Dispositivos pequeños - Móviles verticales */
+@media (max-width: 480px) {
+    body {
+        background-image: url('background-mobile.jpg'); /* 480x800 píxeles */
+    }
+}
+
+/* Móviles grandes o tabletas pequeñas - Vertical */
+@media (min-width: 481px) and (max-width: 768px) {
+    body {
+        background-image: url('background-tablet.jpg'); /* 768x1024 píxeles */
+    }
+}
+
+/* Tabletas en horizontal o dispositivos pequeños en horizontal */
+@media (min-width: 769px) and (max-width: 1024px) {
+    body {
+        background-image: url('background-tablet-landscape.jpg'); /* 1024x768 píxeles */
+    }
+}
+
+/* Laptops pequeñas o monitores estándar */
+@media (min-width: 1025px) and (max-width: 1366px) {
+    body {
+        background-image: url('background-laptop.jpg'); /* 1366x768 píxeles */
+    }
+}
+
+/* Pantallas grandes - Desktop HD */
+@media (min-width: 1367px) and (max-width: 1920px) {
+    body {
+        background-image: url('background-desktop.jpg'); /* 1920x1080 píxeles */
+    }
+}
+
+/* Pantallas ultra grandes (4K y superiores) */
+@media (min-width: 1921px) {
+    body {
+        background-image: url('background-4k.jpg'); /* 3840x2160 píxeles */
+    }
+}

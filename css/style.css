@@ -24797,6 +24797,7 @@ img.mfp-img {
 
 .dv-CoberturaBackground {
 	background-image: url("../images/banners/cobertura.jpg");
+
 }
 
 .dv-PrograBackground {
@@ -24862,3 +24863,70 @@ img.mfp-img {
 .back-white {
 	background-color: #fff;
 }
+
+@media (max-width: 1024px) {
+	.dv-CoberturaBackground {
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+	}
+
+    .dv-PrograBackground {
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+	}
+
+	.coberturaDDVV_1 {
+		padding-bottom: 80px;
+	}
+
+	.coberturaDDVV_2 {
+		padding-bottom: 30px;
+	}
+}
+
+@media (max-width: 480px) {
+	.contrata {
+		content: url("../images/banners/contrata_small.gif");
+	}
+
+	.coberturaPage {
+		content: url("../images/back/cobertura_small.jpg");
+		position: relative;
+	}
+
+	.prograPage {
+		content: url("../images/back/programacion_small.jpg");
+		position: relative;
+	}
+
+	.nosotrosPage {
+		content: url("../images/body/nosotros_small.jpg");
+		position: relative;
+	}
+
+	.bcustomDv {
+		padding: 0px;
+	}
+
+	.sec480Dv {
+		padding-top: 20px !important;
+	}
+
+	.dv480Dv {
+		margin-top: 0px !important;
+	}
+
+	.contactoImg {
+		content: url("../images/body/redes_small.jpg");
+	}
+}
+
+.tiktok-icon {
+	width: 18px; /* Ajusta el tamaño según tus necesidades */
+	height: 18px;
+	display: inline-block;
+	vertical-align: middle; /* Alineación uniforme */
+	fill: currentColor; /* Permite heredar el color actual si es un SVG en línea */
+  }
