@@ -24929,4 +24929,18 @@ img.mfp-img {
 	display: inline-block;
 	vertical-align: middle; /* Alineación uniforme */
 	fill: currentColor; /* Permite heredar el color actual si es un SVG en línea */
-  }
+}
+
+/* Estilos por defecto para escritorio */
+.swiper-slide.desktop {
+    background-image: url('../images/back/sliders/slide1_ultra_1.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Estilos específicos para móvil */
+@media (max-width: 768px) {
+    .swiper-slide.desktop {
+        background-image: url('../images/back/sliders/slide1_xxsmall_1.jpg');
+    }
+}
