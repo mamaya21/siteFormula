@@ -1,7 +1,32 @@
+document.addEventListener("DOMContentLoaded", () => {
+  const slides = document.querySelectorAll(".swiper-slide-function");
+
+  slides.forEach((slide) => {
+      // Detectar dispositivo
+      const isMobile = window.innerWidth <= 768;
+      const originalBg = slide.dataset.slideBg;
+
+      // Reemplazar la imagen según el dispositivo
+      const newBg = !isMobile
+          ? originalBg.replace('background_1', 'slide1_ultra_1') : originalBg ;
+
+          const img = new Image();
+          const timestamp = new Date().getTime(); // Evitar caché
+          img.src = `${newBg}?t=${timestamp}`;
+          
+          img.onload = () => {
+            slide.style.backgroundImage = `url('${img.src}')`;
+            slide.classList.add("loaded"); // Mostrar la diapositiva
+          };
+  });
+
+   // Aplicar la imagen directamente como estilo inline antes de mostrar
+   updateAllSlides("");
+});
+
+window.addEventListener('resize', () => updateAllSlides("resize"));
+
 (function () {
-    // Ejecutar al cargar la página y al redimensionar
-    window.addEventListener('load', updateAllSlides);
-    window.addEventListener('resize', updateAllSlides);
 
     var phoneNumber = "51918821648"; // Número de WhatsApp sin el '+'
 
@@ -43,14 +68,18 @@
 
 }());
 
-function updateAllSlides() {
+function updateAllSlides(value) {
   // Actualizar cada conjunto de sliders con un prefijo único para identificar sus imágenes
-  updateBackgrounds('slide1', 'slide1');
+  if(!isStringEmpty(value)){
+    console.log(value);
+    updateBackgrounds('slide1', 'slide1');
+  }
   updateBackgrounds('slide2', 'slide2');
   updateBackgrounds('slide3', 'slide3');
 }
 
 function updateBackgrounds(slideClass, prefix) {
+  debugger;
   const slides = document.querySelectorAll(`.${slideClass}`);
   const screenWidth = window.innerWidth;
 
@@ -85,6 +114,7 @@ function updateBackgrounds(slideClass, prefix) {
     img.src = `${newBackground}?t=${timestamp}`;
     img.onload = () => {
         slide.style.backgroundImage = `url('${img.src}')`;
+        slide.classList.add("loaded"); // Mostrar la diapositiva
     };
   });
 }
@@ -99,4 +129,8 @@ function sendWhatsAppMessage(telefono, mensaje) {
   
   // Redirigir al usuario al enlace
   window.open(whatsappLink, "_blank");
+}
+
+function isStringEmpty(str) {
+  return !str || str.trim().length === 0;
 }

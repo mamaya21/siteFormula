@@ -7110,7 +7110,7 @@ textarea.textarea-lg {
 	right: 0;
 	bottom: 0;
 	left: 0;
-	background: rgba(25, 24, 24, 0.45);
+	/* background: rgba(25, 24, 24, 0.45); */
 	z-index: 1;
 }
 
@@ -24932,15 +24932,23 @@ img.mfp-img {
 }
 
 /* Estilos por defecto para escritorio */
-.swiper-slide.desktop {
+/* .swiper-slide.desktop {
     background-image: url('../images/back/sliders/slide1_ultra_1.jpg');
     background-size: cover;
     background-position: center;
-}
+} */
 
 /* Estilos específicos para móvil */
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
     .swiper-slide.desktop {
         background-image: url('../images/back/sliders/slide1_xxsmall_1.jpg');
     }
+} */
+
+.swiper-slide {
+	opacity: 0; /* Ocultar inicialmente */
+	transition: opacity 0.3s ease-in-out; /* Transición suave */
+}
+.swiper-slide.loaded {
+	opacity: 1; /* Mostrar cuando esté cargado */
 }
