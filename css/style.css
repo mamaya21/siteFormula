@@ -19756,11 +19756,15 @@ h1 + .tabs-line {
 		border: 1px solid #e1e1e1;
 	}
 	.tabs-horizontal.tabs-line .nav-tabs {
-		justify-content: space-between;
+		/* justify-content: space-between; */
+		justify-content: space-around;
 		border-bottom: 3px solid #e1e1e1;
 	}
 	.tabs-horizontal.tabs-line .nav-item {
 		display: inline-block;
+		padding-bottom: 15px;
+		padding-left: 5px;
+		padding-right: 5px;
 	}
 	.tabs-horizontal.tabs-line .nav-link {
 		position: relative;
