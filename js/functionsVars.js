@@ -26,6 +26,57 @@ document.addEventListener("DOMContentLoaded", () => {
 
 window.addEventListener('resize', () => updateAllSlides("resize"));
 
+function updateAllSlides(value) {
+  // Actualizar cada conjunto de sliders con un prefijo único para identificar sus imágenes
+
+  // const slide = document.getElementById("swiper-slide-js");
+  // slide.classList.add("loaded");
+
+  updateBackgrounds('slide1', 'slide1');
+  updateBackgrounds('slide2', 'slide2');
+  updateBackgrounds('slide3', 'slide3');
+}
+
+function updateBackgrounds(slideClass, prefix) {
+  const slides = document.querySelectorAll(`.${slideClass}`);
+  const screenWidth = window.innerWidth;
+
+  slides.forEach((slide) => {
+    let newBackground = '';
+
+    if (screenWidth >= 1920) {
+      // Pantallas muy grandes (desktop 4K)
+      newBackground = slide.dataset.slideBg.replace('background_', `${prefix}_ultra_`);
+    } else if (screenWidth >= 1440) {
+      // Desktop grande
+      newBackground = slide.dataset.slideBg.replace('background_', `${prefix}_large_`);
+    } else if (screenWidth >= 1024) {
+      // Tablets y laptops
+      newBackground = slide.dataset.slideBg.replace('background_', `${prefix}_medium_`);
+    } else if (screenWidth >= 768) {
+      // Tablets pequeñas
+      newBackground = slide.dataset.slideBg.replace('background_', `${prefix}_small_`);
+    } else if (screenWidth >= 480) {
+      // Smartphones grandes
+      newBackground = slide.dataset.slideBg.replace('background_', `${prefix}_xsmall_`);
+    } else {
+      // Smartphones pequeños
+      newBackground = slide.dataset.slideBg.replace('background_', `${prefix}_xxsmall_`);
+    }
+
+    // Aplicar el fondo dinámico
+    //slide.style.backgroundImage = `url('${newBackground}')`;
+    
+    const img = new Image();
+    const timestamp = new Date().getTime(); // Evitar caché
+    img.src = `${newBackground}?t=${timestamp}`;
+    img.onload = () => {
+        slide.style.backgroundImage = `url('${img.src}')`;
+        slide.classList.add("loaded"); // Mostrar la diapositiva
+    };
+  });
+}
+
 (function () {
 
     var phoneNumber = "51918821648"; // Número de WhatsApp sin el '+'
@@ -67,57 +118,6 @@ window.addEventListener('resize', () => updateAllSlides("resize"));
     // });
 
 }());
-
-function updateAllSlides(value) {
-  // Actualizar cada conjunto de sliders con un prefijo único para identificar sus imágenes
-  if(!isStringEmpty(value)){
-    console.log(value);
-    updateBackgrounds('slide1', 'slide1');
-  }
-  updateBackgrounds('slide2', 'slide2');
-  updateBackgrounds('slide3', 'slide3');
-}
-
-function updateBackgrounds(slideClass, prefix) {
-  debugger;
-  const slides = document.querySelectorAll(`.${slideClass}`);
-  const screenWidth = window.innerWidth;
-
-  slides.forEach((slide) => {
-    let newBackground = '';
-
-    if (screenWidth >= 1920) {
-      // Pantallas muy grandes (desktop 4K)
-      newBackground = slide.dataset.slideBg.replace('background_', `${prefix}_ultra_`);
-    } else if (screenWidth >= 1440) {
-      // Desktop grande
-      newBackground = slide.dataset.slideBg.replace('background_', `${prefix}_large_`);
-    } else if (screenWidth >= 1024) {
-      // Tablets y laptops
-      newBackground = slide.dataset.slideBg.replace('background_', `${prefix}_medium_`);
-    } else if (screenWidth >= 768) {
-      // Tablets pequeñas
-      newBackground = slide.dataset.slideBg.replace('background_', `${prefix}_small_`);
-    } else if (screenWidth >= 480) {
-      // Smartphones grandes
-      newBackground = slide.dataset.slideBg.replace('background_', `${prefix}_xsmall_`);
-    } else {
-      // Smartphones pequeños
-      newBackground = slide.dataset.slideBg.replace('background_', `${prefix}_xxsmall_`);
-    }
-
-    // Aplicar el fondo dinámico
-    //slide.style.backgroundImage = `url('${newBackground}')`;
-    
-    const img = new Image();
-    const timestamp = new Date().getTime(); // Evitar caché
-    img.src = `${newBackground}?t=${timestamp}`;
-    img.onload = () => {
-        slide.style.backgroundImage = `url('${img.src}')`;
-        slide.classList.add("loaded"); // Mostrar la diapositiva
-    };
-  });
-}
 
 function sendWhatsAppMessage(telefono, mensaje) {
         
